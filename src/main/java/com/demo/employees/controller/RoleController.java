@@ -3,10 +3,7 @@ package com.demo.employees.controller;
 import com.demo.employees.model.EmployeeRole;
 import com.demo.employees.repository.EmployeeRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,9 +22,21 @@ public class RoleController {
     @PostMapping("/roles/newrole")
     public void addRole(@RequestBody EmployeeRole employeeRole) {
         EmployeeRole empRole = EmployeeRole.builder().
-                                    roleName(employeeRole.getRoleName()).
-                                    employeeId(employeeRole.getEmployeeId()).
-                                    build();
+                roleName(employeeRole.getRoleName()).
+                projectName(employeeRole.getProjectName()).
+                employee(employeeRole.getEmployee()).
+                build();
+        repository.save(empRole);
+    }
+
+    @PutMapping("roles")
+    public void updateEmployeeRole(@RequestBody EmployeeRole employeeRole) {
+        EmployeeRole empRole = EmployeeRole.builder().
+                roleId(employeeRole.getRoleId()).
+                roleName(employeeRole.getRoleName()).
+                projectName(employeeRole.getProjectName()).
+                employee(employeeRole.getEmployee()).
+                build();
         repository.save(empRole);
     }
 }
