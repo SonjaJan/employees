@@ -1,5 +1,7 @@
 package com.employees.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -33,22 +35,25 @@ public class Employee {
     )
     private String lastName;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<EmployeeRole> roles = new ArrayList<>();
-
-    public Employee(Employee employee) {
-        this.firstName = employee.firstName;
-        this.lastName = employee.lastName;
-    }
+    private List<EmployeeRole> roles = new ArrayList<EmployeeRole>();
 
     public void addEmployeeRole(EmployeeRole employeeRole) {
-        roles.add(employeeRole);
+//        roles.add(employeeRole);
+//        employeeRole.setEmployee(this);
+        this.roles.add(employeeRole);
         employeeRole.setEmployee(this);
     }
 
     public void removeEmployeeRole(EmployeeRole employeeRole) {
-        roles.remove(employeeRole);
+        this.roles.remove(employeeRole);
         employeeRole.setEmployee(null);
+    }
+
+    public Employee(Employee employee) {
+        this.firstName = employee.firstName;
+        this.lastName = employee.lastName;
     }
 
 }

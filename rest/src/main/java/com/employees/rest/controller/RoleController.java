@@ -29,7 +29,7 @@ public class RoleController {
         repository.save(empRole);
     }
 
-    @PutMapping("roles")
+    @PutMapping("/roles")
     public void updateEmployeeRole(@RequestBody EmployeeRole employeeRole) {
         EmployeeRole empRole = EmployeeRole.builder().
                 roleId(employeeRole.getRoleId()).
@@ -38,5 +38,9 @@ public class RoleController {
                 employee(employeeRole.getEmployee()).
                 build();
         repository.save(empRole);
+    }
+    @DeleteMapping("/role/{id}")
+    public  void deleteEmployeeRole(@PathVariable Long id){
+        repository.deleteById(id);
     }
 }

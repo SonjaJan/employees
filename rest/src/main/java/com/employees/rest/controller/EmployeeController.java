@@ -37,6 +37,7 @@ public class EmployeeController {
         Employee emp = repository.findById(id).get();
         emp.setFirstName(employee.getFirstName());
         emp.setLastName(employee.getLastName());
+        emp.setRoles(employee.getRoles());
         repository.save(emp);
     }
 }
