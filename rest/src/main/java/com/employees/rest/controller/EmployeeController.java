@@ -13,6 +13,17 @@ public class EmployeeController {
     @Autowired
     public EmployeeRepository repository;
 
+    @GetMapping("/employees/bynamewithquery/{name}")
+    public List<Employee> findEmployeeByNameWithQuery(@PathVariable("name") String name){
+       return repository.findEmployeeByNameWithQuery(name);
+    }
+
+    @GetMapping("/employees/byname/{name}")
+    public List<Employee> findEmployeeByName(@PathVariable("name") String name){
+        return repository.findEmployeeByFirstName(name);
+    }
+
+
     @GetMapping("/employees")
     public List<Employee> all() {
         System.out.println("Getting all employees...");
