@@ -39,8 +39,9 @@ public class RoleController {
                 build();
         repository.save(empRole);
     }
+
     @DeleteMapping("/role/{id}")
-    public  void deleteEmployeeRole(@PathVariable Long id){
+    public void deleteEmployeeRole(@PathVariable Long id) {
         repository.deleteById(id);
     }
 }

@@ -14,12 +14,12 @@ public class EmployeeController {
     public EmployeeRepository repository;
 
     @GetMapping("/employees/bynamewithquery/{name}")
-    public List<Employee> findEmployeeByNameWithQuery(@PathVariable("name") String name){
-       return repository.findEmployeeByNameWithQuery(name);
+    public List<Employee> findEmployeeByNameWithQuery(@PathVariable("name") String name) {
+        return repository.findEmployeeByNameWithQuery(name);
     }
 
     @GetMapping("/employees/byname/{name}")
-    public List<Employee> findEmployeeByName(@PathVariable("name") String name){
+    public List<Employee> findEmployeeByName(@PathVariable("name") String name) {
         return repository.findEmployeeByFirstName(name);
     }
 
@@ -36,7 +36,9 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees/newemployee")
-    public void saveEmployee(@RequestBody Employee employee) { repository.save(employee); }
+    public void saveEmployee(@RequestBody Employee employee) {
+        repository.save(employee);
+    }
 
     @DeleteMapping("/employees/{id}")
     public void deleteEmployee(@PathVariable Long id) {

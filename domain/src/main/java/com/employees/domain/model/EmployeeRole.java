@@ -1,8 +1,6 @@
 package com.employees.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -27,13 +25,13 @@ public class EmployeeRole {
     @Column(name = "project_name")
     private String projectName;
 
-  //  @JsonIgnore
+    //  @JsonIgnore
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
 
-    public EmployeeRole(EmployeeRole employeeRole){
+    public EmployeeRole(EmployeeRole employeeRole) {
         this.setEmployee(employeeRole.getEmployee());
     }
 
