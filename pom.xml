@@ -17,7 +17,6 @@
 		<module>main</module>
 		<module>domain</module>
 		<module>rest</module>
-		<module>util</module>
 	</modules>
 	<description>Employees Project</description>
 	<properties>

@@ -1,7 +1,5 @@
 package com.employees.main;
 
-import com.employees.util.HibernateUtil;
-import org.hibernate.Session;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,7 +19,5 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class EmployeesApplication {
     public static void main(String[] args) {
         SpringApplication.run(EmployeesApplication.class, args);
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
     }
 }

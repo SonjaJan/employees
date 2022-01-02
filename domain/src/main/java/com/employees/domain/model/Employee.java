@@ -44,8 +44,6 @@ public class Employee {
     }
 
     public void addEmployeeRole(EmployeeRole employeeRole) {
-//        roles.add(employeeRole);
-//        employeeRole.setEmployee(this);
         this.roles.add(employeeRole);
         employeeRole.setEmployee(this);
     }
