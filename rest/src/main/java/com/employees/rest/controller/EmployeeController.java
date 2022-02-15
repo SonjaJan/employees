@@ -3,11 +3,13 @@ package com.employees.rest.controller;
 import com.employees.domain.model.Employee;
 import com.employees.domain.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Component
 public class EmployeeController {
 
     @Autowired

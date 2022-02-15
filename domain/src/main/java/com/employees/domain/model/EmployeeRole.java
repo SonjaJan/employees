@@ -35,4 +35,9 @@ public class EmployeeRole {
         this.setEmployee(employeeRole.getEmployee());
     }
 
+    public EmployeeRole(long roleId, String roleName, String projectName) {
+        this.roleId = roleId;
+        this.roleName = roleName;
+        this.projectName = projectName;
+    }
 }
