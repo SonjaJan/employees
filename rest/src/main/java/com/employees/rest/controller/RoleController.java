@@ -21,23 +21,23 @@ public class RoleController {
 
     @PostMapping("/roles/newrole")
     public void addRole(@RequestBody EmployeeRole employeeRole) {
-        EmployeeRole empRole = EmployeeRole.builder().
+ /*       EmployeeRole empRole = EmployeeRole.builder().
                 roleName(employeeRole.getRoleName()).
                 projectName(employeeRole.getProjectName()).
                 employee(employeeRole.getEmployee()).
-                build();
-        repository.save(empRole);
+                build();*/
+        repository.save(employeeRole);
     }
 
     @PutMapping("/roles")
     public void updateEmployeeRole(@RequestBody EmployeeRole employeeRole) {
-        EmployeeRole empRole = EmployeeRole.builder().
+/*        EmployeeRole empRole = EmployeeRole.builder().
                 roleId(employeeRole.getRoleId()).
                 roleName(employeeRole.getRoleName()).
                 projectName(employeeRole.getProjectName()).
                 employee(employeeRole.getEmployee()).
-                build();
-        repository.save(empRole);
+                build();*/
+        repository.save(employeeRole);
     }
 
     @DeleteMapping("/role/{id}")
